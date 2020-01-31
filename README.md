@@ -1,6 +1,6 @@
 # DataStructures
 Code from Data Structures Assignments  
-`------------------------------------`  
+
 Final project is a program which takes two sets of integers and compares the efficacy of various hash collision resolution techniques. 
 - Linear Probing
 - Linked List Chaining
