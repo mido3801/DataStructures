@@ -1,0 +1,14 @@
+Load Factor 0.1
+---------------------Linear Probing
+Deleting: 7.74microseconds
+Hashing: 0microseconds
+Lookup: 4.94microseconds
+---------------------Linked List Chaining
+Deleting: 0microseconds
+Hashing: 0microseconds
+Lookup: 0microseconds
+---------------------BST Chaining
+Deleting: 0microseconds
+Hashing: 0microseconds
+Lookup: 0microseconds
+---------------------

@@ -1,0 +1,48 @@
+Goals of code
+
+1. Define Word Struct - done
+2.Use array doubling algorithm to increase size of array. Start with array of 100 and double when out of space
+3. Ignore top 50 most common words from second file
+4. Take 3 command line arguments: 1. number n tells you how many of most frequent words to print 2. name of file to be read 3. file with words to be ignored
+5.Print out 10 most frequent words beginning at index N (cmd line arg)
+6. Format
+
+Array doubled: <Number of times the array was doubled>
+#
+Unique non-common words: <unique non-common words>
+#
+Total non-common words: <Total non-common words>
+#
+Probability of next 10 words from rank <N>
+------------------------------------------
+<Nth highest probability> - <corresponding word>
+<N+1th highest probability> - <word>
+...
+<N+10th highest prob> - <word>
+
+
+In main
+  - IF the correct number of cmd line arguments is not passed, print the below statement and exit the program
+    - std::cout<<"Usage: Assignment2Solution <number of words> <inputfilename.txt> <ignoreWordsfilename.txt>" <<endl;
+  -ii. Get stop-words/common-wrods from ignoreWords.txt and store them in an array (call you getStopWords fnx)
+  -iii. Read words from TomSawyer.txt and store all unique words taht are not ignore-words in an array of structs
+    1. Create a dynamic wordItem array of size 100
+    2. Add non-ignore words to the array (double the array if full)
+    3. Keep track of the number of times the wordItem array is doubled and number of unique non-ignore words
+
+void getStopWords(const char *ignoreWordFileName, string ignoreWords[]);
+  - read stop words from file and store in ignore words array (50 stop words)
+  -if file fails to open print "Failed to open " << file << endl
+
+bool isStopWord(string word, string ignoreWords[]);
+  - return whether word is in ignoreWords array;
+
+int getTotalNumberNonStopWords(wordItem uniqueWords[], int length);
+  -compute total number of words in the entire document by summing all counts of individual unique words
+
+void arraySort(wordItem uniqueWords[], int length);
+  - sort uniqeuWords array by words count such that most frequent words are sorted to the beginning
+
+void printNext10(wordItem uniqueWords[], int N, int totalNumWords);
+  - print next 10 words after starting index N from sorted array. The next 10 words with their probabilityup to 4 dec places
+  probability-of-occurence = (float)uniqueWords[ind].count/totalNumWords
